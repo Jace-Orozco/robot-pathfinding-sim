@@ -1,8 +1,7 @@
-from gridnav.grid import Grid
+from gridnav.grid import Grid, WALL, FREE
 from dataclasses import dataclass
 import matplotlib.pyplot as plt
 
-WALL, FREE = 1, 0
 Position = tuple[int, int] #(x, y) coordinates
 
 @dataclass
