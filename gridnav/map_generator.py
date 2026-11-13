@@ -29,7 +29,7 @@ def generate_map(width, height, wall_density = 0.25, seed = None, max_attempts =
         if is_reachable(grid, start_cell, goal_cell):
             return MapData(grid, start_cell, goal_cell)
 
-    raise ValueError("Failed to generate a valid map after max_attempts")
+    raise ValueError(f"Failed to generate a valid map after {max_attempts}")
 
 def is_reachable(grid, start, goal):
     frontier = deque([start])
