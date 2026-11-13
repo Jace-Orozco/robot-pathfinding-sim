@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from collections import deque
 from gridnav.grid import Grid, WALL, FREE
 from gridnav.map_loader import MapData

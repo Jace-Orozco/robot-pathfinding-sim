@@ -11,13 +11,22 @@ class MapData:
     start: Position
     goal: Position
 
-    def display(self):
+    def display(self, path = None, save_to = None):
             plt.imshow(self.grid.grid, cmap='binary', interpolation='nearest', vmin = 0, vmax = 1)
+
+            if path:
+                xs = [x for x, y in path]
+                ys = [y for x, y in path]
+                plt.plot(xs, ys, 'b-', linewidth = 2, label='Path')  # Path in blue
+
             sx, sy = self.start
             gx, gy = self.goal
-            plt.plot(sx, sy, 'go', label='Start')  # Start position in green
-            plt.plot(gx, gy, 'r*', label='Goal')   # Goal position in red
+            plt.plot(sx, sy, 'go', label='Start')  # Start in green
+            plt.plot(gx, gy, 'r*', markersize = 12, label='Goal')  # Goal in red
             plt.legend()
+
+            if save_to:
+                plt.savefig(save_to, dpi = 150, bbox_inches = 'tight')
             plt.show()
 
 def load_map(path):
